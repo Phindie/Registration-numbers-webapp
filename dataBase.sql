@@ -1,0 +1,5 @@
+-- insert into  registry(registration_num,  town_id ) values('CapeTown','CA');
+--   insert into  registry(registration_num,  town_id ) values('Bellville','CY');
+--     insert into  registry(registration_num,  town_id ) values('George','CAW');
+--       insert into  registry(registration_num,  town_id ) values('Paarl','CJ');
+--         insert into  registry(registration_num,  town_id ) values('Worcester','CW');
