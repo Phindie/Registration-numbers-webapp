@@ -16,18 +16,20 @@ async function selectTown(name){
     return town.rows;
 }
 async function selectPlate(plate){
-   let result = await pool.query('select * from registry where town_id = $1', [plate]);
+   let result = await pool.query('select * from registry where town_name = $1', [plate]);
    return result.rows; 
 }
   
 async function insertPlate(number, regNum){
-    await pool.query('insert into registry (town_name,town_id) value ($1,$2)',[number, regNum]);
+    await pool.query('insert into registry (town_name,town_id) values ($1,$2)',[number, regNum]);
 
 }
 
 async function tryAddPlate(plate,id){
-    let plateSubString = plate.substring(0,3)
-    let result = await selectPlate(plateSubString);
+    console.log(plate);
+    console.log("iytt");
+    // let plateSubString = plate.substring(0,3)
+    let result = await selectPlate(plate);
     if (result.length !=0){
         return false;
     }

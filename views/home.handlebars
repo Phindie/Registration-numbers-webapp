@@ -32,10 +32,11 @@
         </div>
 
         <div class="numberDisplay">
-          {{!-- <ul>
-            <li></li>
-          </ul> --}}
-        <span class="displayNumbers">{{Numbers}} </span>
+          <ul>
+            {{#each Numbers}}
+            <li>{{town_name}}</li>
+            {{/each}}
+          </ul>
       </div>
 
         </div>
