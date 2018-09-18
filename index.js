@@ -79,10 +79,10 @@ const pool = new Pool({
     res.redirect('/');
   });
 
-app.post('/registration', function (req,res){
+// app.post('/registration', function (req,res){
 
 
-})
+// })
   const PORT = process.env.PORT || 3001;
 
   app.listen(PORT, function () {

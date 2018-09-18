@@ -11,6 +11,7 @@ async function filterBytown(town){
 }
 
 async function selectTown(name){
+    //let town = await pool.query('select id from towns where town_id = $1',[name]);
     let town = await pool.query('select * from towns where town_id = $1',[name]);
     return town.rows;
 }
@@ -25,7 +26,8 @@ async function insertPlate(number, regNum){
 }
 
 async function tryAddPlate(plate,id){
-    let result = await selectPlate(plate);
+    let plateSubString = plate.substring(0,3)
+    let result = await selectPlate(plateSubString);
     if (result.length !=0){
         return false;
     }
