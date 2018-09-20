@@ -1,34 +1,49 @@
 
+<div class="container">
+  <form  action="/registration" method="post">
 
-<form class="" action="/registration" method="post">
-  <div class="row">
-    <div class="twelve columns">
-      <div class="box"twelve="header-note">
       <div id="displayreg"><h2> Registration Numbers Webapp</h2>
  <strong><h3>Enter a registration number:</h3></strong></div>
 
         <br>
         <div id="textFieldAndBtn">
-          <input type="text" class="registrationNum" name="nums" value="">
+          <input type="text" class="registrationNum" name="nums" value="" pattern='[A-Z]{2,3}\s\d{3}\W\d{3}|[A-Z]{2,3}\s\d{2,3}' title="Example: CA 123-345">
           <br>
-          <button class="button-primary addBtn" on type="submit" name="button">Add</button>
-          <button class="button-primary clearBtn" on type="submit" name="button">Clear</button>
+        
+          <input type="submit" name="add" value="Add!" class="bigBtn">
+          </form>
+          <a href="/reset"><input type="button" name="Reset" value="Reset!" class="bigBtn" ></a>
+         
           <br>
           <span> <span class="alert"></span> </span>
-        </div>
+        
          <br>
          <br>
+
+         
         <div class="addTown">
-          <label for="Town: "></label>
-          <select class="DropSelector" name="selectTown">
-            <option class="DropSelector"  name="selectTown" value="All ">All Towns</option>
-            <option class="DropSelector"  name="selectTown" value="CA ">CapeTown</option>
-            <option class="DropSelector"  name="selectTown" value="CJ ">Paarl</option>
-            <option class="DropSelector"  name="selectTown" value="CY ">Bellville</option>
-            <option class="DropSelector"  name="selectTown" value="CAW ">George</option>
-            <option class="DropSelector"  name="selectTown" value="CW ">Worcester</option>
+          <form action="/towns" method="GET">
+            <label for="town: "></label>
+          <select onchange="filterBy(this)" class="DropSelector" name="selectTown">
+
+            <option name="selectTown" selected>Choose town</option>
+
+            <option  name="selectTown" class="DropSelector" value="All" >All-Towns</option>
+
+            {{#each regID}}
+            <option value="{{town_id}}" {{selected}}>{{town_name}}</option>
+            {{/each}}
+            
+            {{!-- <option  name="selectTown" class="DropSelector" value="CA" >CapeTown</option>
+            <option  name="selectTown" class="DropSelector" value="CJ" >Paarl</option>
+            <option name="selectTown" class="DropSelector" value="CY" >Bellville</option>
+            <option name="selectTown" class="DropSelector" value="CAW" >George</option>
+            <option name="selectTown" class="DropSelector" value="CW" >Worcester</option> --}}
 
           </select>
+          {{!-- <button type="submit">filter</button> --}}
+           </form>
+          
         </div>
 
         <div class="numberDisplay">
@@ -38,14 +53,20 @@
             {{/each}}
           </ul>
       </div>
+</div>
+        
 
-        </div>
-</form>
 
         {{#if messages.info}}
 <div class="entry">
-    <h1> {{messages.info}}</h1>
+    <h4> {{messages.info}}</h4>
 </div>
 {{/if}}
-      </div>
-    </div>
+</div>
+
+  <script type="text/javascript">
+    function filterBy(elem){
+      var  tag = elem.value
+      location.href = '/filter/' + tag
+    }
+  </script>

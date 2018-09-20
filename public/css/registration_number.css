@@ -1,8 +1,17 @@
-
 .container{
   text-align: center;
+  background-color: tan;
+  height: 650px;
+  width: auto;
+  }
+  .bigBtn {
+    width: 120px;
+    height:60px;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: white;
+  }
 
-}
 h2 {
   background-color:black;
   height: 100px;
@@ -16,7 +25,7 @@ h2 {
 }
   li   {
   border: 1px solid black;
-  background-color: skyblue;
+  background-color: indianred;
   border-radius: 15px;
   padding: 10px;
   margin-top: 15px;
@@ -31,63 +40,30 @@ h2 {
   height: 40px;
   width: 180px;
 }
-
-.addBtn{
-  width: 90px;
-  height: 40px;
-  margin-left: 10px;
-  margin-top: 20px;
-}
-.clearBtn{
-  width: 90px;
-  height: 40px;
-  margin-left: 10px;
-
-}
 .displayNumbers{
 border: 1px solid white;
-background-color: yellow;
 border-radius: 50%;
 }
 .DropSelector {
-  background-color: grey;
+  background-color: indianred;
   color: white;
   width: 150px;
   height: 40px;
   text-align: 100%;
  align-self: center;
- margin-left: 560px;
+ margin-left: 8px;
 }
 
 
-.alert {
-  width: 100%;
+.entry {
   color: red;
 }
-
-#alertID {
-  width: 50%
-}
-
-
 .numberDisplay {
   margin-left: -6px;
   background-color:  black;
   height: 100px;
-  color: white;
+  color: black;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  /*color: white*/
-}
-/* .filter{
-  width: 200px;
-
-} */
-
-@media only screen and (max-width:400px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width: 100%;
-  }
 }

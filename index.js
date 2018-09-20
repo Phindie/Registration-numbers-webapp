@@ -1,7 +1,7 @@
 const exphbs = require('express-handlebars');
 const flash = require('express-flash');
-const session = require('express-session');
-const Registrations = require('./registration-numbers')
+ const session = require('express-session');
+ const Registrations = require('./registration-numbers')
 const Routes = require ('./route/Routes')
 const Services = require ('./services/numberServices')
 const express = require('express');
@@ -48,6 +48,7 @@ const pool = new Pool({
   }))
   app.use(bodyParser.json());
   app.use(express.static('public'));
+  
 
 
   const services = Services(pool);
@@ -55,34 +56,15 @@ const pool = new Pool({
  
  
   app.get('/', plateRoute.home);
-  //   res.render('home', {Numbers:reg.displayReg()});
-  // });
-
   app.post('/registration', plateRoute.reporting) 
-
-
-//     const textinput = req.body.nums;
-//     const addTown = req.body.selectTown;
-
-// console.log(reg.addedNumbers(textinput));
-// console.log(reg.displayReg());
-
-//     let checkReg = reg.addedNumbers(textinput);
-//     let dropdown = reg.townFilter(addTown);
-    
-//    res.render('home', {checkReg,dropdown,Numbers:reg.displayReg()});
-
-//     });
+ app.get('/filter/:town', plateRoute.reportFilter);
+  app.get('/reset', plateRoute.deleteReg);
 
   app.get('/addFlash', function (req, res) {
     req.flash('info', 'Flash Message Added');
     res.redirect('/');
   });
 
-// app.post('/registration', function (req,res){
-
-
-// })
   const PORT = process.env.PORT || 3001;
 
   app.listen(PORT, function () {
