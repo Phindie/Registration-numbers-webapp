@@ -64,8 +64,8 @@ border-radius: 50%;
 }
 .numberDisplay {
   margin-left: -6px;
-  height: 90px;
-  background-color:  black;
+  height: 50px;
+background-color:  black; 
   color: black;
   text-align: center;
   font-weight: bold;

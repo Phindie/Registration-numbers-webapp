@@ -38,7 +38,11 @@
            </form>
           
         </div>
-
+ {{#if messages.info}}
+<div class="entry">
+    <h4> {{messages.info}}</h4>
+</div>
+{{/if}}
         <div class="numberDisplay"></div>
       
 </div>
@@ -51,11 +55,7 @@
     
 
 
-        {{#if messages.info}}
-<div class="entry">
-    <h4> {{messages.info}}</h4>
-</div>
-{{/if}}
+       
 </div>
 
   <script type="text/javascript">
