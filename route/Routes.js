@@ -42,9 +42,23 @@ module.exports = function(service){
             let initial = req.params.towns;
             let Numbers = await service.selectInTown();
             let regPlates = await service.filterBytown(initial);
-            
+
+            for (let index = 0; index < Numbers.length; index++) {
+                const currentTown = Numbers[index];
+                if (currentTown.town_id === initial) {
+                    currentTown.selected = 'selected';
+                    break;
+                }
+            }
+            // if (displayRegNum.length === 0) {
+            //     req.flash('error', 'No Resgistrations Entered For Town Selected');
+            // } 
+
             res.render('home', {initial, regPlates, Numbers})
-       } catch (err) { res.send(err.stack)}
+       } catch (err) { 
+           res.send(err.stack)
+   
+        }
     }
 
     //  clear my table
