@@ -57,7 +57,7 @@ const pool = new Pool({
  
   app.get('/', plateRoute.home);
   app.post('/registration', plateRoute.reporting) 
- app.get('/filter/:town', plateRoute.reportFilter);
+ app.get('/filter/:towns', plateRoute.reportFilter);
   app.get('/reset', plateRoute.deleteReg);
 
   app.get('/addFlash', function (req, res) {

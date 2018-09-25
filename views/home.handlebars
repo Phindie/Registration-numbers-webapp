@@ -25,36 +25,30 @@
           <form action="/towns" method="GET">
             <label for="town: "></label>
           <select onchange="filterBy(this)" class="DropSelector" name="selectTown">
-
-            <option name="selectTown" selected>Choose town</option>
-
+           {{!-- <option name="selectTown" selected>Choose town</option> --}}
             <option  name="selectTown" class="DropSelector" value="All" >All-Towns</option>
 
-            {{#each regID}}
-            <option value="{{town_id}}" {{selected}}>{{town_name}}</option>
+             {{#each Numbers}}
+            <option name="selectTown" value="{{town_id}}" {{selected}}> {{town_name}}</option>
             {{/each}}
-            
-            {{!-- <option  name="selectTown" class="DropSelector" value="CA" >CapeTown</option>
-            <option  name="selectTown" class="DropSelector" value="CJ" >Paarl</option>
-            <option name="selectTown" class="DropSelector" value="CY" >Bellville</option>
-            <option name="selectTown" class="DropSelector" value="CAW" >George</option>
-            <option name="selectTown" class="DropSelector" value="CW" >Worcester</option> --}}
+          
 
           </select>
-          {{!-- <button type="submit">filter</button> --}}
+          
            </form>
           
         </div>
 
-        <div class="numberDisplay">
-          <ul>
-            {{#each Numbers}}
-            <li>{{town_name}}</li>
-            {{/each}}
-          </ul>
-      </div>
+        <div class="numberDisplay"></div>
+      
 </div>
-        
+    {{#each regPlates}}
+    <li class=''>
+      {{town_name}}
+     
+    </li>
+    {{/each}}
+    
 
 
         {{#if messages.info}}

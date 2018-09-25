@@ -11,6 +11,9 @@
     border-radius: 5px;
     background-color: white;
   }
+  button{
+    background-color: blue;
+  }
 
 h2 {
   background-color:black;
@@ -28,7 +31,7 @@ h2 {
   background-color: indianred;
   border-radius: 15px;
   padding: 10px;
-  margin-top: 15px;
+  /* / */
   margin-left: 5px;
   width: 10%;
   list-style: none;
@@ -57,13 +60,15 @@ border-radius: 50%;
 
 .entry {
   color: red;
+ 
 }
 .numberDisplay {
   margin-left: -6px;
+  height: 90px;
   background-color:  black;
-  height: 100px;
   color: black;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
+  margin-top: 20px;
 }
