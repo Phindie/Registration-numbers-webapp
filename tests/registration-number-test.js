@@ -1,63 +1,36 @@
 
-describe('The registration number Widget Function', function(){
+let useSSL = false;
+let local = process.env.LOCAL || false;
+if (process.env.DATABASE_URL && !local) {
+  useSSL = true;
+}
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/my_registration';
 
-it('should return true if registration matches the given regnumber for Cape town', function(){
-
-  var selectPlate = RegFactory();
-assert.equal(selectPlate.addedNumbers('CA 980 631'),true );
+const pool = new Pool({
+  connectionString,
+  ssl: useSSL
 });
 
-it('should return true if registration matches the given regnumber for Bellville', function(){
-var selectPlate = RegFactory();
+describe('Registration number WeApp test for both front-end and back-ends', function() {
 
-assert.equal(selectPlate.addedNumbers('CY 125 876'), true);
+  beforeEach(async function(){
+    await pool.query('delete from registry');
   });
-it('should return true if registration matches the given regnumber for Paarl', function(){
-var selectPlate = RegFactory();
-
-assert.equal(selectPlate.addedNumbers('CJ 125 567'), true);
-  })
-  it('should return true if registration matches the given regnumber for Paarl', function(){
-  var selectPlate = RegFactory();
-
-  assert.equal(selectPlate.addedNumbers('CAW 125 567'), true);
-    })
-
-it('should return true if registration matches the given regnumber for Worcester', function(){
-var selectPlate = RegFactory();
-
-assert.equal(selectPlate.addedNumbers('CW 125 34'), true);
-});
-
-it('should return false if the registration does not match the given regnumber', function(){
-var selectPlate = RegFactory();
-
-assert.equal(selectPlate.addedNumbers('CAA 125 123'), false);
+  
+it('should return empty users data ', async function() {
+    var services = Services(pool);
+    let results = await services.selectAlldata();
+    assert.strictEqual(results.length, 0);
   });
 
-it('should map registrations from the given regnumbers only', function(){
-var selectPlate = RegFactory();
+it('Should return the greet in English ', async function() {
+    var services = Services(pool);
+    await services.addUsersOrIncrement('Phindi', 'Hello');
+    let results = await services.selectAlldata();
+    assert.strictEqual(results.length, 1);
+  });
 
-selectPlate.addedNumbers("CY 156 234");
-selectPlate.addedNumbers("CK 124 873");
-selectPlate.addedNumbers("CJ 432 23");
-selectPlate.addedNumbers("LN 253 7754");
-
-assert.deepEqual(selectPlate .mapRegistry(), { 'CY 156 234': 0, 'CJ 432 23': 0 })
-});
-
-it('should return CA registrations only, if filtered for Cape Town', function(){
-var selectPlate = RegFactory();
-
-selectPlate.addedNumbers("CA 754 342");
-selectPlate.addedNumbers("CA 6734");
-selectPlate.addedNumbers("CAW 2659");
-assert.deepEqual(selectPlate.townFilter('CA '), ['CA 754 342','CA 6734'])
-});
-it('should take stored map and return it', function(){
-var storage = {'CA 6734':0, 'CAW 2659':0,'CW 7653':0 }
-var  selectPlate = RegFactory(storage);
-
-assert.deepEqual(selectPlate.mapRegistry(), {'CA 6734':0, 'CAW 2659':0,'CW 7653':0 })
-});
+  after(function() {
+    pool.end();
+  });
 });

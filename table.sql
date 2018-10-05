@@ -19,3 +19,4 @@ insert into  towns(town_name,  town_id ) values('CapeTown','CA');
     insert into  towns(town_name,  town_id ) values('George','CAW');
       insert into  towns(town_name,  town_id ) values('Paarl','CJ');
         insert into  towns(town_name,  town_id ) values('Worcester','CW');
+       

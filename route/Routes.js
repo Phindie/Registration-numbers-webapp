@@ -41,7 +41,15 @@ module.exports = function(service){
         try{
             let initial = req.params.towns;
             let Numbers = await service.selectInTown();
-            let regPlates = await service.filterBytown(initial);
+            let regPlates;
+            if(initial === 'All'){
+                
+                regPlates = await service.platesName();
+               
+            }else{
+                regPlates = await service.filterBytown(initial);
+            }
+            
 
             for (let index = 0; index < Numbers.length; index++) {
                 const currentTown = Numbers[index];

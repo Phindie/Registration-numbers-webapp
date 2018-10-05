@@ -25,8 +25,8 @@
           <form action="/towns" method="GET">
             <label for="town: "></label>
           <select onchange="filterBy(this)" class="DropSelector" name="selectTown">
-           {{!-- <option name="selectTown" selected>Choose town</option> --}}
-            <option  name="selectTown" class="DropSelector" value="All" >All-Towns</option>
+
+            <option  name="selectTown" class="DropSelector" value="All">All-Towns</option>
 
              {{#each Numbers}}
             <option name="selectTown" value="{{town_id}}" {{selected}}> {{town_name}}</option>
