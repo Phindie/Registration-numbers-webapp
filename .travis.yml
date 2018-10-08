@@ -7,8 +7,8 @@ node_js:
   - "8.9.4"
 
 before_script:
-  - psql -c 'create database  greeting_app_database;' -U postgres
-  - psql -U postgres -d greeting_app_database -a -f table.sql
+  - psql -c 'create database  my_registration;' -U postgres
+  - psql -U postgres -d my_registration -a -f table.sql
 
 addons:
     apt:
