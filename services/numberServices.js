@@ -11,6 +11,7 @@ module.exports = function(pool){
      
     }
     
+    
     async function selectTown(name){
         let town = await pool.query('select * from towns where town_id = $1',[name]);
         // console.log(town.rowCount);

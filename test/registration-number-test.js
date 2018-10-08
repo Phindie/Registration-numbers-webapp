@@ -41,6 +41,7 @@ it('it should return length zero because CK is not in the database', async funct
   await service.tryAddPlate('CL 321-123',3);
   await service.tryAddPlate('CW 321-123',4);
 
+
   let result = await service.selectPlate('CK 321-123');
   let plateData = result.length;
   assert.strictEqual(plateData, 0);
@@ -67,6 +68,7 @@ it('it should return Bellville registration number ', async function () {
   let plateData = await service.filterBytown('CY');
   assert.strictEqual(plateData[0].town_name, 'CY 321-123');
 });
+
 
 it('it should return George registration number ', async function () {
   let service = numberServices(pool);

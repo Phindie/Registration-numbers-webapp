@@ -10,6 +10,7 @@ before_script:
   - psql -c 'create database  my_registration;' -U postgres
   - psql -U postgres -d my_registration -a -f table.sql
 
+  
 addons:
     apt:
     packages:
