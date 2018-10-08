@@ -4,15 +4,13 @@
   height: 650px;
   width: auto;
   }
-  .bigBtn {
-    width: 120px;
-    height:60px;
+  .btn {
+    width: 90px;
+    height:50px;
     border: 2px solid;
     border-radius: 5px;
-    background-color: white;
-  }
-  button{
-    background-color: blue;
+    background-color:indianred ;
+    color: white;
   }
 
 h2 {
@@ -25,6 +23,7 @@ h2 {
 }
 #textFieldAndBtn{
   text-align: center;
+  
 }
   li   {
   border: 1px solid black;
@@ -64,8 +63,8 @@ border-radius: 50%;
 }
 .numberDisplay {
   margin-left: -6px;
-  height: 50px;
-background-color:  black; 
+  height: 100px;
+ background-color:  black; 
   color: black;
   text-align: center;
   font-weight: bold;

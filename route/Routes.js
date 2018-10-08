@@ -22,15 +22,19 @@ module.exports = function(service){
             }else{
                 let list = plate.split(' ');
                 let  initial = list[0];
-                let town_list = await service.selectTown(initial);
-                if(town_list.lenght != 0){
+                let town_list = await service.selectTown(initial)
+                console.log(town_list);
+            
+                if(town_list.length != 0){
                     let flag = await service.tryAddPlate(plate,town_list[0].id);
                     if(!flag){
                         req.flash('info', 'Oops registration number already exist')
                     }
                 }
-            
-            }
+                else {
+                    req.flash('info', 'Oops Invalid Plate num')
+                }
+             }
             res.redirect('/');
      
         } catch (err){
@@ -49,8 +53,6 @@ module.exports = function(service){
             }else{
                 regPlates = await service.filterBytown(initial);
             }
-            
-
             for (let index = 0; index < Numbers.length; index++) {
                 const currentTown = Numbers[index];
                 if (currentTown.town_id === initial) {
