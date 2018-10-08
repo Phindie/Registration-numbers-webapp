@@ -10,7 +10,7 @@ module.exports = function(service){
             res.render('home', {Numbers,regPlates});
         }catch(err){
 
-        }
+
         
     }
     // displaying or reporting what on my registrations
