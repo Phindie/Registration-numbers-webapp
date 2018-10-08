@@ -18,7 +18,7 @@ const pool = new Pool({
 describe('Registration number WeApp test for both front-end and back-ends', function() {
 
   beforeEach(async function(){
-    await pool.query('delete from registry');
+    await pool.query('delete from registry;');
   });
   
 
