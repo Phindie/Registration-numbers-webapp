@@ -1,7 +1,7 @@
 const exphbs = require('express-handlebars');
 const flash = require('express-flash');
  const session = require('express-session');
- const Registrations = require('./registration-numbers')
+ const Registrations = require('./views/home')
 const Routes = require ('./route/Routes')
 const Services = require ('./services/numberServices')
 const express = require('express');

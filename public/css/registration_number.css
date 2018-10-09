@@ -24,6 +24,7 @@ h2 {
 #textFieldAndBtn{
   text-align: center;
   
+  
 }
   li   {
   border: 1px solid black;
@@ -32,7 +33,7 @@ h2 {
   padding: 10px;
   /* / */
   margin-left: 5px;
-  width: 10%;
+  width: 150px;
   list-style: none;
   text-align: center;
   display: inline-block;
@@ -45,6 +46,7 @@ h2 {
 .displayNumbers{
 border: 1px solid white;
 border-radius: 50%;
+
 }
 .DropSelector {
   background-color: indianred;
@@ -63,7 +65,7 @@ border-radius: 50%;
 }
 .numberDisplay {
   margin-left: -6px;
-  height: 100px;
+  height: 70px;
  background-color:  black; 
   color: black;
   text-align: center;
